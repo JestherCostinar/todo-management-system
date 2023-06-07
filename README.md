@@ -47,6 +47,11 @@ spring.jpa.hibernate.ddl-auto=update
 - Todo Repository extends the JPA repository and supply the Todo entity so that, we can now have access to database operations for todo entity.
 - Todo Dto - to limit the client access from todo data.
 
+##### 6. Build Create Todo REST API
+- TodoService - serve as todo interface, so every behavior we set for todo service is serve as rules in todo implementation
+- TodoServiceImpl - serve as todo service implementation class that override the rules we set in TodoService(createTodo)
+- TodoController - serve as REST API for todo, we only implement the @PostMapping for the creation of todo
+- 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
 - LinkedIn - https://www.linkedin.com/in/jesther-costinar/
