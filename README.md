@@ -31,15 +31,21 @@ spring.datasource.password={db_password}
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 spring.jpa.hibernate.ddl-auto=update
 ```
-##### 3. Create the following package:
+##### 3. Create the following package/folder structure:
 
 - <strong>controller</strong> - is responsible for handling the incoming request and send back the response match to the url
 - <strong>dto</strong> - is responsible for mapping the jpa data to dto or vice versa. this is to limit the data access of the client and perform encapsulation.
 - <strong>entity</strong> - or model is responsible for creation of table and columns. The jpa maps the entity class to its corresponding table.
-- <strong>repository</strong> - is responsible for the database operations such as insert query, update, select and delete.
+- <strong>repository</strong> - is responsible for the database operations such as insert query, update, select and delete. repository extend the JpaRepository to use the crud operation of the entity
 - <strong>service</strong> - or the business logic in the application. Its responsible for creation of business rules such as fields validation, handling exception, etc..
 - <strong>utils</strong> - or utility class is responsible for reusable codes that can access across the application
 
+##### 4. Create Todo entity/model
+- The todo class will serve as the table, and by the help of JPA, it maps the entity class to the corresponding table
+
+##### 5. Create the Todo Repository and TodoDto
+- Todo Repository extends the JPA repository and supply the Todo entity so that, we can now have access to database operations for todo entity.
+- Todo Dto - to limit the client access from todo data.
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
