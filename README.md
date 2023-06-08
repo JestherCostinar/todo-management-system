@@ -57,6 +57,12 @@ spring.jpa.hibernate.ddl-auto=update
 - Second, Create bean for modelMapper
 - Third, use modelMapper.map method
 
+##### 8. Get Todo by Id
+- Create getTodoById() method in TodoService Interface
+- Implement the getTodoById() method in the implemention
+- Create exception if todo is not exist
+- In the getTodoById() method store todoJpa result to todoDto orElseThrow the resourceNotfFoundException
+
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com

@@ -4,4 +4,5 @@ import com.jesthercostinar.todo.dto.TodoDto;
 
 public interface TodoService {
     TodoDto createTodo(TodoDto todoDto);
+    TodoDto getTodoById(Long id);
 }

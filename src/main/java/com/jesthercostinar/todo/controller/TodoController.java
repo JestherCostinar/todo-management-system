@@ -15,10 +15,19 @@ import org.springframework.web.bind.annotation.*;
 public class TodoController {
 
     private TodoService todoService;
+
+    // Save Todo jpa to database and Save it in todoDto to return as Dto
     @PostMapping
     public ResponseEntity<TodoDto> save(@RequestBody TodoDto todo) {
         TodoDto savedTodo = todoService.createTodo(todo);
 
         return new ResponseEntity<>(savedTodo, HttpStatus.CREATED);
+    }
+
+    // Retrive Todo by Id
+    @GetMapping("{id}")
+    public ResponseEntity<TodoDto> getTodoById(@PathVariable Long id) {
+        TodoDto todo = todoService.getTodoById(id);
+        return new ResponseEntity<>(todo, HttpStatus.OK);
     }
 }

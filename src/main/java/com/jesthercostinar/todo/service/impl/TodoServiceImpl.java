@@ -2,6 +2,7 @@ package com.jesthercostinar.todo.service.impl;
 
 import com.jesthercostinar.todo.dto.TodoDto;
 import com.jesthercostinar.todo.entity.Todo;
+import com.jesthercostinar.todo.exception.ResourceNotFoundException;
 import com.jesthercostinar.todo.repository.TodoRepository;
 import com.jesthercostinar.todo.service.TodoService;
 import lombok.AllArgsConstructor;
@@ -20,10 +21,17 @@ public class TodoServiceImpl implements TodoService {
         Todo todo = modelMapper.map(todoDto, Todo.class);
         // Save and store in jpa entity
         Todo savedTodo = todoRepository.save(todo);
-
         // Convert saved Todo Jpa entity object into TodoData object
         TodoDto savedTodoDto = modelMapper.map(savedTodo, TodoDto.class);
 
         return savedTodoDto;
+    }
+
+    @Override
+    public TodoDto getTodoById(Long id) {
+        Todo todo = todoRepository.findById(id).orElseThrow(() ->
+            new ResourceNotFoundException("Todo not found with id:" + id)
+        );
+        return modelMapper.map(todo, TodoDto.class);
     }
 }
