@@ -87,6 +87,11 @@ spring.jpa.hibernate.ddl-auto=update
 - Check if the supplied id exist, if not return exception else patch update the column isCompleted to true
 - Use that method in PATCH REST API and return todoDTO
 
+##### 13. Setup the REST API Documentation 
+- <strong>Dependency Name</strong>: SpringDoc OpenAPI Starter WebMVC UI
+- > https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui/2.1.0
+- <strong>Url for swagger-ui</strong>: http://localhost:8080/swagger-ui/index.html
+- <strong>Annotation</strong>: @OpenAPIDefinition, @Info, @Contact, @License, @External, @Operation, @ApiResponse
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
