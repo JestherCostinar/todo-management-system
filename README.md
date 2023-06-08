@@ -81,7 +81,7 @@ spring.jpa.hibernate.ddl-auto=update
 - Check if the supplied id exist, if not return exception else delete the todo with that id
 - Use that method in Delete REST API and return String message
 
-##### 11. PATCH REST API to update the todo partially (e)
+##### 12. PATCH REST API to update the todo partially (set todo as incomplete)
 - Create completedTodo(Long id) method in TodoService Interface
 - Implement the completedTodo(LongId) method in the implementation
 - Check if the supplied id exist, if not return exception else patch update the column isCompleted to true
