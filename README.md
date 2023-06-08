@@ -59,10 +59,14 @@ spring.jpa.hibernate.ddl-auto=update
 
 ##### 8. Get Todo by Id
 - Create getTodoById() method in TodoService Interface
-- Implement the getTodoById() method in the implemention
+- Implement the getTodoById() method in the implementation
 - Create exception if todo is not exist
 - In the getTodoById() method store todoJpa result to todoDto orElseThrow the resourceNotfFoundException
 
+##### 9. Get All Todos
+- Create getAllTodos() method in TodoService Interface
+- Implement the getTodoById() method in the implementation
+- In the getAllTodos() method, the todoJpa result map into todoDt
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
