@@ -51,7 +51,13 @@ spring.jpa.hibernate.ddl-auto=update
 - TodoService - serve as todo interface, so every behavior we set for todo service is serve as rules in todo implementation
 - TodoServiceImpl - serve as todo service implementation class that override the rules we set in TodoService(createTodo)
 - TodoController - serve as REST API for todo, we only implement the @PostMapping for the creation of todo
-- 
+
+##### 7. Use modelMapper dependency to map the todoJpa to todoDto or vice versa
+- First, add the modelMapper dependency to pom.xml file
+- Second, Create bean for modelMapper
+- Third, use modelMapper.map method
+
+
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com
 - LinkedIn - https://www.linkedin.com/in/jesther-costinar/
