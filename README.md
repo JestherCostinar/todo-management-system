@@ -57,16 +57,29 @@ spring.jpa.hibernate.ddl-auto=update
 - Second, Create bean for modelMapper
 - Third, use modelMapper.map method
 
-##### 8. Get Todo by Id
+##### 8. Get Todo by Id REST API
 - Create getTodoById() method in TodoService Interface
 - Implement the getTodoById() method in the implementation
 - Create exception if todo is not exist
 - In the getTodoById() method store todoJpa result to todoDto orElseThrow the resourceNotfFoundException
 
-##### 9. Get All Todos
+##### 9. Get All Todos REST API
 - Create getAllTodos() method in TodoService Interface
 - Implement the getTodoById() method in the implementation
 - In the getAllTodos() method, the todoJpa result map into todoDt
+
+##### 10. Update Todo REST API
+- Create updateTodo(TodoDto var, Long id) method in TodoService Interface
+- Implement the updateTodo(TodoDto var, LongId) method in the implementation
+- In the getAllTodos(TodoDto var, Long id) method, get the todo information using findById method, pass the id variable and store in todo variable
+- Set the updated value of todo information and save it
+- Return the map todo jpa to todoDto
+
+##### 11. Delete Todo REST API
+- Create deleteById(Long id) method in TodoService Interface
+- Implement the updateTodo(LongId) method in the implementation
+- Check if the supplied id exist, if not return exception else delete the todo with that id
+- Use that method in Delete REST API and return String message
 
 ## 👨‍💻Contact Me 🚀🔵
 - Email - jesther.jc15@gmail.com

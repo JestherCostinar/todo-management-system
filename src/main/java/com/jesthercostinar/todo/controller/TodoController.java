@@ -39,4 +39,18 @@ public class TodoController {
         List<TodoDto> todos = todoService.getTodos();
         return ResponseEntity.ok(todos);
     }
+
+    // Build Update Todo REST API
+    @PutMapping("{id}")
+    private ResponseEntity<TodoDto> updateTodo(@RequestBody TodoDto todoDto,
+                                               @PathVariable Long id) {
+        TodoDto updatedTodo = todoService.updateTodo(todoDto, id);
+        return ResponseEntity.ok(updatedTodo);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteTodo(@PathVariable Long id) {
+        todoService.deleteTodo(id);
+        return ResponseEntity.ok("Successfully deleted!");
+    }
 }
