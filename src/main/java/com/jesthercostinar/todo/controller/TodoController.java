@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,6 +30,7 @@ public class TodoController {
             responseCode = "201",
             description = "HTTP Status 201 CREATED"
     )
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<TodoDto> save(@RequestBody TodoDto todo) {
         TodoDto savedTodo = todoService.createTodo(todo);
@@ -45,6 +47,7 @@ public class TodoController {
             responseCode = "200",
             description = "HTTP Status 200 OK"
     )
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @GetMapping("{id}")
     public ResponseEntity<TodoDto> getTodoById(@PathVariable Long id) {
         TodoDto todo = todoService.getTodoById(id);
@@ -60,6 +63,7 @@ public class TodoController {
             responseCode = "200",
             description = "HTTP Status 200 OK"
     )
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @GetMapping
     public ResponseEntity<List<TodoDto>> getAllTodo() {
         List<TodoDto> todos = todoService.getTodos();
@@ -75,9 +79,12 @@ public class TodoController {
             responseCode = "200",
             description = "HTTP Status 200 OK"
     )
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("{id}")
-    private ResponseEntity<TodoDto> updateTodo(@RequestBody TodoDto todoDto,
-                                               @PathVariable Long id) {
+    public
+
+    ResponseEntity<TodoDto> updateTodo(@RequestBody TodoDto todoDto,
+                                               @PathVariable("id") Long id) {
         TodoDto updatedTodo = todoService.updateTodo(todoDto, id);
         return ResponseEntity.ok(updatedTodo);
     }
@@ -90,6 +97,7 @@ public class TodoController {
             responseCode = "200",
             description = "HTTP Status 200 OK"
     )
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteTodo(@PathVariable Long id) {
         todoService.deleteTodo(id);
@@ -105,6 +113,7 @@ public class TodoController {
             responseCode = "200",
             description = "HTTP Status 200 OK"
     )
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @PatchMapping("{id}/completed")
     public ResponseEntity<TodoDto> completedTodo(@PathVariable Long id) {
         TodoDto completedTodo = todoService.completeTodo(id);
@@ -120,6 +129,7 @@ public class TodoController {
             responseCode = "200",
             description = "HTTP Status 200 OK"
     )
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @PatchMapping("{id}/in-complete")
     public ResponseEntity<TodoDto> incompleteTodo(@PathVariable Long id) {
         TodoDto incompleteTodo = todoService.incompleteTodo(id);
